@@ -1,169 +1,332 @@
-<html lang="en-us"><head>
-            <style>
-              body, html {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                height: 100%;
-                width: 100%;
-              }
-            </style>
-          </head>
-          <body>
-            <!--?xml version="1.0" encoding="UTF-8" ?-->
-<module>
-<moduleprefs title="Google.com">
-<content type="html"><!--[CDATA[
+<!DOCTYPE html>
 
+<html lang="en-us">
+<head>
+  <!-- Charset & Viewport -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!DOCTYPE html-->
+  <!-- Canonical & Robots -->
 
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/granny-nightmare" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Night Mare</title>
-    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/TemplateData/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/TemplateData/style.css">
-    <!-- Yandex Games SDK -->
-    <script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/v2.js"></script>
+  <!-- Title -->
 
+  <title>Play Granny Nightmare - Unity WebGL Horror Game Unblocked by StaticQuasar931</title>
 
-    <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
-        <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%; cursor: default;" width="2560" height="1279"></canvas>
-        <div id="unity-loading-bar" style="display: none;">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-                <div id="unity-progress-bar-full" style="width: 100%;"></div>
-            </div>
-        </div>
-        <div id="unity-warning"> </div>
+  <!-- Core SEO -->
+
+  <meta name="description" content="Play Granny Nightmare in your browser. Explore a creepy house, find keys, avoid the monster, and escape. Free, fullscreen, and school-safe. Hosted by StaticQuasar931." />
+  <meta name="keywords" content="Granny Nightmare, Granny Nightmare game, Granny Nightmare unblocked, Granny Nightmare school, horror escape game, WebGL horror, scary maze, stealth escape game, spooky survival, school safe games, Static, StaticQuasar, StaticQuasar931, static 931, staticq, staticq931, 931" />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <!-- Social / Open Graph -->
+
+  <meta property="og:title" content="Granny Nightmare - Free Unblocked Horror Game" />
+  <meta property="og:description" content="Search for keys, unlock doors, and escape the nightmare. Free and unblocked on StaticQuasar931." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sites.google.com/view/staticquasar931/gm3z/granny-nightmare" />
+  <meta property="og:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1760840000/granny_nightmare_cover_staticquasar931.png" />
+  <meta property="og:image:alt" content="Granny Nightmare gameplay view of a dark hallway with a door and faint light" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dcsrqennd/image/upload/v1760840000/granny_nightmare_cover_staticquasar931.png" />
+
+  <!-- Preload preview image -->
+
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dcsrqennd/image/upload/v1760840000/granny_nightmare_cover_staticquasar931.png" />
+
+  <!-- Favicon -->
+
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/TemplateData/favicon.ico" />
+
+  <!-- Unity CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/TemplateData/style.css" />
+
+  <!-- Yandex Games SDK -->
+
+  <script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/v2.js"></script>
+
+  <style>
+    :root{
+      --brand:#5ee1ff; --brand2:#9bffb7;
+      --shadow:0 12px 34px rgba(0,0,0,.45);
+      --glow:0 0 12px rgba(94,225,255,.65), 0 0 28px rgba(155,255,183,.35);
+    }
+    html,body{
+      margin:0; padding:0; height:100%; overflow:hidden;
+      background:#000; color:#e8f3ff;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    /* Canvas fills viewport */
+    #unity-container{ position:fixed; inset:0; width:100vw; height:100vh; }
+    #unity-canvas{ width:100%; height:100%; display:block; cursor:default; background:#000; }
+    #unity-loading-bar{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+    #unity-warning{ position:fixed; top:0; left:0; right:0; z-index:20 }
+
+    /* Static Menu - top left */
+    #staticMenu{
+      position:fixed; top:12px; left:12px; z-index:1000;
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      padding:10px 14px; border-radius:12px;
+      background:linear-gradient(135deg, rgba(20,20,28,.92), rgba(20,20,28,.6));
+      border:1px solid rgba(94,225,255,.35);
+      box-shadow:var(--glow), var(--shadow);
+      font-size:14px; animation:menuEnter .6s ease .15s both;
+    }
+    #staticMenu a{ color:#5ee1ff; text-decoration:none; font-weight:800; }
+    #closeStaticMenu{
+      color:#f55; cursor:pointer; padding:2px 6px; border-radius:6px;
+      border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
+      user-select:none;
+    }
+    @keyframes menuEnter{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Game label block under Static Menu */
+    #gameLabel{
+      position:fixed; top:58px; left:12px; z-index:999;
+      padding:8px 12px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(15,15,22,.9), rgba(15,15,22,.55));
+      border:1px solid rgba(155,255,183,.35);
+      box-shadow:var(--glow), var(--shadow);
+      font-size:13px; font-weight:700; color:#cfe;
+    }
+
+    /* Rotating Icon bottom-right - only Google Form and Instagram */
+    #staticSlideMenu{
+      position:fixed; bottom:24px; right:24px; z-index:999;
+      width:100px; height:100px; pointer-events:none; opacity:0;
+      transform:translateX(140px) scale(.96);
+    }
+    #staticSlideMenu a{ display:block; width:100%; height:100%; }
+    #staticSlideMenu img{ width:100%; height:100%; object-fit:cover; border-radius:50%; }
+    .slide-in{ animation:slideIn 2s ease forwards; }
+    .slide-out{ animation:slideOut 2s ease forwards; }
+    @keyframes slideIn{from{opacity:0;transform:translateX(140px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
+    @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(140px) scale(.96)}}
+
+    /* Hidden SEO block */
+    .seo-hidden{
+      position:absolute;width:1px;height:1px;overflow:hidden;
+      clip:rect(1px,1px,1px,1px);white-space:nowrap;
+    }
+  </style>
+
+</head>
+<body>
+  <!-- Static Menu -->
+  <div id="staticMenu" role="region" aria-label="StaticQuasar menu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
+    <span id="closeStaticMenu" title="Hide temporarily">✕</span>
+  </div>
+  <!-- Game label under menu -->
+  <div id="gameLabel" aria-hidden="true">Granny Nightmare - alternate (unblocked)</div>
+
+  <!-- Rotating Icon -->
+
+  <div id="staticSlideMenu" aria-live="polite">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener">
+      <img id="staticSlideImg" src="https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png" alt="StaticQuasar931 Google Form for feedback" />
+    </a>
+  </div>
+
+  <!-- Unity Game Container -->
+
+  <div id="unity-container">
+    <canvas id="unity-canvas" width="2560" height="1440"></canvas>
+    <div id="unity-loading-bar" style="display:none;">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full" style="width:0%"></div>
+      </div>
     </div>
-    <script>
-        YaGames
-            .init()
-            .then(ysdk => {
-                console.log('Yandex SDK initialized');
-                window.ysdk = ysdk;
-                initPlayer();
-            });
-        
-        var player;
+    <div id="unity-warning"></div>
+  </div>
 
-        function initPlayer() {
-            return ysdk.getPlayer({ scopes: false }).then(_player => {
-                player = _player;
-                return player;
-            });
+  <!-- Hidden SEO content -->
+
+  <div class="seo-hidden" aria-hidden="true">
+    <h1>Granny Nightmare - Unblocked Unity WebGL Horror Escape Game</h1>
+    <p><strong>Granny Nightmare</strong> is a first person horror escape g@me and survival challenge where you explore a dark house, collect keys, solve light puzzles, and avoid a stalking enemy. Learn the layout, open locked doors, and find the final exit before the creature catches you. This version runs right in your browser using Unity WebGL. It is free, fullscreen, and school safe on Chromebook, Windows, Mac, and mobile.</p>
+    <p>How to play: move through rooms, search drawers, pick up items, and listen for audio cues. Footsteps and creaks can reveal danger, so plan a stealth route and use hiding spots. Your goal is to unlock the necessary doors, combine items when needed, and reach the escape path. Each run builds skill as you learn spawn points and shortcuts. The experience blends stealth, suspense, and puzzle solving into a tense escape loop that rewards careful observation and quick decisions.</p>
+    <p>Why play here: StaticQuasar931 serves clean embeds and fullscreen support with fast loading. No downloads required. Works at school and work where allowed. Bookmark this page if you want a reliable place to play. If one version fails to load due to network rules, try another game or check back later. For feedback or requests, use the Google Form and follow our Instagram community.</p>
+    <p>Keywords: Granny Nightmare unblocked, Granny Nightmare game, Granny Nightmare school, horror escape game, stealth survival, WebGL scary game, creepy house puzzle, Unity horror g@me, StaticQuasar931 931 staticq staticq931.</p>
+  </div>
+
+  <!-- Unity Loader -->
+
+  <script>
+    // Leave confirmation
+    window.onbeforeunload = () => "Are you sure you want to leave? Your session may be interrupted.";
+
+    // Fit canvas to visual viewport
+    (function fitCanvas(){
+      const canvas = document.getElementById('unity-canvas');
+      const container = document.getElementById('unity-container');
+      const fit = () => {
+        const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        const vw = window.visualViewport ? window.visualViewport.width  : window.innerWidth;
+        container.style.width = vw + 'px';
+        container.style.height = vh + 'px';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+      };
+      fit();
+      addEventListener('resize', fit, {passive:true});
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', fit, {passive:true});
+    })();
+
+    // Static menu close and timed restore
+    (function(){
+      const menu = document.getElementById("staticMenu");
+      const btn = document.getElementById("closeStaticMenu");
+      const KEY = "sq931_staticMenu_hidden_until";
+      const restore = () => { menu.style.display = "flex"; };
+      const maybeHide = () => {
+        const until = parseInt(localStorage.getItem(KEY) || "0", 10);
+        const now = Date.now();
+        if (until && now < until){
+          menu.style.display = "none";
+          setTimeout(restore, until - now);
         }
-    </script>
-    <script>
-        var container = document.querySelector("#unity-container");
-        var canvas = document.querySelector("#unity-canvas");
-        var loadingBar = document.querySelector("#unity-loading-bar");
-        var progressBarFull = document.querySelector("#unity-progress-bar-full");
-        var warningBanner = document.querySelector("#unity-warning");
+      };
+      btn.onclick = () => {
+        menu.style.display = "none";
+        const until = Date.now() + 180000;
+        localStorage.setItem(KEY, String(until));
+        setTimeout(restore, 180000);
+      };
+      maybeHide();
+    })();
 
-        function unityShowBanner(msg, type) {
-            function updateBannerVisibility() {
-                warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-            }
-            var div = document.createElement('div');
-            div.innerHTML = msg;
-            warningBanner.appendChild(div);
-            if (type == 'error') div.style = 'background: red; padding: 10px;';
-            else {
-                if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-                setTimeout(function() {
-                    warningBanner.removeChild(div);
-                    updateBannerVisibility();
-                }, 5000);
-            }
-            updateBannerVisibility();
+    // Rotating icons - Google Form then Instagram
+    (function(){
+      const wrap = document.getElementById("staticSlideMenu");
+      const a = document.getElementById("staticSlideLink");
+      const img = document.getElementById("staticSlideImg");
+
+      const links = [
+        {src:"https://res.cloudinary.com/dcsrqennd/image/upload/v1747533056/raw_um4pvq.png", alt:"Google Form - feedback", link:"https://sites.google.com/view/staticquasar931/google-form"},
+        {src:"https://res.cloudinary.com/dcsrqennd/image/upload/v1747533158/raw_cw34yi.png", alt:"Instagram - follow @freeschoolgamepage", link:"https://www.instagram.com/freeschoolgamepage/"}
+      ];
+      links.forEach(o=>{ const p=new Image(); p.src=o.src; });
+
+      let i = 0;
+      const show = (o) => { img.src=o.src; img.alt=o.alt; a.href=o.link; };
+      async function loop(){
+        for(;;){
+          show(links[i]);
+          wrap.classList.add('slide-in');
+          wrap.style.pointerEvents="auto";
+          await new Promise(r=>setTimeout(r,7000));
+          wrap.classList.remove('slide-in');
+          wrap.classList.add('slide-out');
+          await new Promise(r=>setTimeout(r,2000));
+          wrap.classList.remove('slide-out');
+          wrap.style.pointerEvents="none";
+          await new Promise(r=>setTimeout(r,20000));
+          i=(i+1)%links.length;
         }
+      }
+      show(links[0]); loop();
+    })();
+  </script>
 
-        var buildUrl = "https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/Build";
-        var loaderUrl = buildUrl + "/Granny_Nightmare.loader.js";
+  <!-- Game bootstrapping with Yandex SDK and merged WASM -->
 
-        // WASM dosyalarını birleştirme fonksiyonu
-        async function mergeWasmFiles() {
-            const part1Url = buildUrl + "/Granny_Nightmare_part1.wasm";
-            const part2Url = buildUrl + "/Granny_Nightmare_part2.wasm";
+  <script>
+    // Yandex SDK init
+    YaGames.init().then(ysdk => {
+      console.log('Yandex SDK initialized');
+      window.ysdk = ysdk;
+      ysdk.getPlayer({ scopes: false }).then(p => { window.yaPlayer = p; });
+    });
 
-            // Her iki parçayı indir
-            const [part1Response, part2Response] = await Promise.all([
-                fetch(part1Url),
-                fetch(part2Url)
-            ]);
+    // Unity banner
+    const loadingBar = document.getElementById("unity-loading-bar");
+    const progressBarFull = document.getElementById("unity-progress-bar-full");
+    const warningBanner = document.getElementById("unity-warning");
+    function unityShowBanner(msg, type) {
+      function updateBannerVisibility() {
+        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+      }
+      const div = document.createElement('div');
+      div.innerHTML = msg;
+      warningBanner.appendChild(div);
+      if (type === 'error') div.style = 'background:red; padding:10px;';
+      else {
+        if (type === 'warning') div.style = 'background:yellow; padding:10px;';
+        setTimeout(function() {
+          warningBanner.removeChild(div);
+          updateBannerVisibility();
+        }, 5000);
+      }
+      updateBannerVisibility();
+    }
 
-            const part1Buffer = await part1Response.arrayBuffer();
-            const part2Buffer = await part2Response.arrayBuffer();
+    // Build paths
+    const buildUrl = "https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/Build";
+    const loaderUrl = buildUrl + "/Granny_Nightmare.loader.js";
 
-            // Buffer'ları birleştir
-            const totalLength = part1Buffer.byteLength + part2Buffer.byteLength;
-            const mergedBuffer = new Uint8Array(totalLength);
-            mergedBuffer.set(new Uint8Array(part1Buffer), 0);
-            mergedBuffer.set(new Uint8Array(part2Buffer), part1Buffer.byteLength);
+    // Merge WASM parts into one Blob URL
+    async function mergeWasmFiles() {
+      const part1Url = buildUrl + "/Granny_Nightmare_part1.wasm";
+      const part2Url = buildUrl + "/Granny_Nightmare_part2.wasm";
 
-            // Blob olarak döndür ve URL oluştur
-            const blob = new Blob([mergedBuffer], { type: "application/wasm" });
-            return URL.createObjectURL(blob);
-        }
+      const [r1, r2] = await Promise.all([fetch(part1Url), fetch(part2Url)]);
+      if (!r1.ok || !r2.ok) throw new Error("Failed to fetch WASM parts");
+      const [b1, b2] = await Promise.all([r1.arrayBuffer(), r2.arrayBuffer()]);
+      const total = b1.byteLength + b2.byteLength;
+      const merged = new Uint8Array(total);
+      merged.set(new Uint8Array(b1), 0);
+      merged.set(new Uint8Array(b2), b1.byteLength);
+      const blob = new Blob([merged], { type: "application/wasm" });
+      return URL.createObjectURL(blob);
+    }
 
-        // Config güncellemesi
-        var config = {
-            dataUrl: buildUrl + "/Granny_Nightmare.data",
-            frameworkUrl: buildUrl + "/Granny_Nightmare.framework.js",
-            codeUrl: "", // Bu kısmı dinamik olarak dolduracağız
-            streamingAssetsUrl: "StreamingAssets",
-            companyName: "DefaultCompany",
-            productName: "Night Mare",
-            productVersion: "0.1",
-            showBanner: unityShowBanner,
-        };
+    // Unity config
+    const config = {
+      dataUrl: buildUrl + "/Granny_Nightmare.data",
+      frameworkUrl: buildUrl + "/Granny_Nightmare.framework.js",
+      codeUrl: "", // set after merge
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "Night Mare",
+      productVersion: "0.1",
+      showBanner: unityShowBanner
+    };
 
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            var meta = document.createElement('meta');
-            meta.name = 'viewport';
-            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-            document.getElementsByTagName('head')[0].appendChild(meta);
-            container.className = "unity-mobile";
-            canvas.className = "unity-mobile";
-        } else {
-            canvas.style.width = "100%";
-            canvas.style.height = "100%";
-        }
+    // Load Unity loader and boot
+    const canvas = document.getElementById("unity-canvas");
+    let myGameInstance = null;
 
+    const script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = async () => {
+      try {
         loadingBar.style.display = "block";
-        var myGameInstance = null;
+        config.codeUrl = await mergeWasmFiles();
+        if (typeof createUnityInstance !== "function") throw new Error("Loader missing createUnityInstance");
+        createUnityInstance(canvas, config, (p) => {
+          progressBarFull.style.width = (100 * p) + "%";
+        }).then((unityInstance) => {
+          myGameInstance = unityInstance;
+          loadingBar.style.display = "none";
+        }).catch((message) => {
+          console.error(message);
+          unityShowBanner(message, 'error');
+        });
+      } catch (err) {
+        console.error(err);
+        unityShowBanner("There was an error while preparing the game: " + err.message, 'error');
+      }
+    };
+    document.body.appendChild(script);
+  </script>
 
-        var script = document.createElement("script");
-        script.src = loaderUrl;
-        script.onload = async () => {
-            // WASM dosyalarını birleştir ve config'e ekle
-            try {
-                config.codeUrl = await mergeWasmFiles();
-                createUnityInstance(canvas, config, (progress) => {
-                    progressBarFull.style.width = 100 * progress + "%";
-                }).then((unityInstance) => {
-                    myGameInstance = unityInstance;
-                    loadingBar.style.display = "none";
-                }).catch((message) => {
-                    alert(message);
-                });
-            } catch (error) {
-                alert("WASM dosyaları birleştirilirken hata oluştu: " + error);
-            }
-        };
+  <!-- Do not duplicate loader or framework scripts below -->
 
-        document.body.appendChild(script);
-    </script>
-
-
-
-
-]]&gt;</content>
-</moduleprefs></module><script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/Build/Granny_Nightmare.loader.js"></script>
-
-          
-          
-        <script src="https://cdn.jsdelivr.net/gh/my-files-schoolum/o8k@main/Build/Granny_Nightmare.framework.js"></script></body></html>
+</body>
+</html>
